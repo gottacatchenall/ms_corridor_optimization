@@ -198,14 +198,20 @@
         <article>
             <h1 id="introduction">Introduction</h1>
             <p>Human activity has rapidly reshaped the face of Earth’s surface, leaving fragments of patchy habitat. Although there is no shortage of debate as to the effects of fragmentation <em>per se</em> on biodiversity and ecosystem function <span class="citation" data-cites="cite">(<strong>cite?</strong> )</span>, it is generally accepted that the combination of habitat and ensuing subdivision produce negative outcomes for ecosystem function and services <span class="citation" data-cites="resasco">(<strong>resasco?</strong> review)</span>.</p>
-            <p>In order to mitigate the consequences of landscape change on ecosystems, developing landscape <em>corridors</em> has seen much attention in the last several decades. Bit more evidence for corridors here. But still, given the spatter of fragments in a landscape, where should ecologists choose to use their limit resources to build a corridor?</p>
+            <p>In order to mitigate the consequences of landscape change on ecosystems, developing landscape <em>corridors</em> has seen much attention in the last several decades. Bit more evidence for corridors here. But still, the spatter of fragments in a landscape, where should ecologists choose to use their limit resources to build a corridor?</p>
             <p>Here we propose to answer that question by proposing an algorithm to estimate the landscape modification that results in optimizing a specific ecosystem process (in this paper maximizing the time until extinction of a metapopulation, although the algorithm and associated software can be generally applied to any process-based model with a quantifiable target state).</p>
             <p>Although algorithms have been proposed for this <span class="citation" data-cites="peterman">(<strong>peterman?</strong> etc)</span>, they are focused on finding the where the paths of least existance for a given species is given data on that species dispersal.</p>
             <h1 id="an-algorithm-for-optimizing-corridor-placement">An algorithm for optimizing corridor placement</h1>
+            <p>Start with some definitions and notation.</p>
+            <p>The set of possible landscape modifications, <span class="math inline">𝕄</span>.</p>
+            <p>The transition probability function, <span class="math inline"><em>q</em></span>, which gives the probability of moving from one modification <span class="math inline"><em>i</em> ∈ 𝕄</span> to a new proposed state <span class="math inline"><em>j</em> ∈ 𝕄</span>, as a function of a chains temperature.</p>
+            <p>Here we define <span class="math inline"><em>q</em>(<em>i</em>, <em>j</em>)</span> using a logistic function,</p>
+            <p><span class="math display">$$q(i,j) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$</span></p>
             <h1 id="simulation-of-data-for-testing-the-algorithm">Simulation of data for testing the algorithm</h1>
             <h2 id="simulation-of-occupancy-dynamics">Simulation of occupancy dynamics</h2>
             <h2 id="simulation-of-landscapes">Simulation of landscapes</h2>
             <h1 id="results">Results</h1>
+            <p><strong><em>MTE versus epoch fig</em></strong>: shows the chains move toward higher extinction times over time, i.e. it works.</p>
             <p><strong><em>Some type of performance fig vs. raster size and budget figure</em></strong></p>
             <h1 id="discussion">Discussion</h1>
         </article>
