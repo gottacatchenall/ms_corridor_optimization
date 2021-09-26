@@ -222,17 +222,22 @@
             <p>Simulated annealing can be written described as the following.</p>
             <p>A markov-chain, denoted <span class="math inline"><em>π</em><sub><em>α</em></sub></span></p>
             <p><strong><em>Figure 1: concept fig</em></strong></p>
-            <h2 id="process-based-optimization">Process-based optimization</h2>
+            <h2 id="process-based-optimization-using-occupancy-dynamics">Process-based optimization (using occupancy dynamics)</h2>
             <p>Here we use occupancy dynamics as the process, although we emphasize that this method works for arbitraty process models and is instead limited only by the computational demands of a given process model.</p>
+            <p>Compute new resistance surface which gives pairwise potential values for each pair of points.</p>
+            <h3 id="occupancy-model">Occupancy model</h3>
+            <p>This pairwise potential value becomes normalized dispersal potential in spatially-explicit metapopulation dynamics model <span class="citation" data-cites="hanski2000">(<strong>ovask2003?</strong>)</span>. Done using <code>MetacommunityDynamics.jl</code>.</p>
+            <p>There might be attempts at analytic stuff but maybe not here?</p>
             <p><strong><em>Figure 2: MTE versus epoch fig</em></strong>: shows the chains move toward higher extinction times over time, i.e. it works.</p>
             <h1 id="simulation-of-data-for-testing-the-algorithm">Simulation of data for testing the algorithm</h1>
-            <h2 id="simulation-of-occupancy-dynamics">Simulation of occupancy dynamics</h2>
             <h2 id="simulation-of-landscapes">Simulation of landscapes</h2>
             <h3 id="generation-of-landcover-maps">Generation of landcover maps</h3>
+            <p>DiamondSquare with high autocorrelatoin (0.7). Binned into <span class="math inline"><em>N</em><sub><em>c</em><em>a</em><em>t</em></sub></span> land cover categories.</p>
             <h3 id="generation-of-points">Generation of points</h3>
+            <p>Random Poisson process rounded to be integer coordinates. Padding around the edges because real data doesn’t have points on the edges, there’s a bounding box(?).</p>
             <h3 id="resistance-values-assigned-to-each-land-cover-type">Resistance values assigned to each land cover type</h3>
             <p><strong><em>Some type of performance fig vs. raster size and budget figure</em></strong></p>
-            <h1 id="actual-data-st.-lawrence-lowlands">Actual data st. lawrence lowlands</h1>
+            <h1 id="actual-data-st.-lawrence-lowlands">Actual data St. Lawrence lowlands</h1>
             <h1 id="discussion">Discussion</h1>
         </article>
     </main>
