@@ -10,7 +10,7 @@ subdivision produce negative outcomes for ecosystem function and services
 
 In order to mitigate the consequences of landscape change on ecosystems,
 developing landscape _corridors_ has seen much attention in the last several
-decades. Bit more evidence for corridors here. But still, given the spatter of
+decades. Bit more evidence for corridors here. But still, the spatter of
 fragments in a landscape, where should ecologists choose to use their limit
 resources to build a corridor?
 
@@ -27,6 +27,20 @@ given data on that species dispersal.
 
 # An algorithm for optimizing corridor placement
 
+Start with some definitions and notation.
+
+The set of possible landscape modifications, $\mathbb{M}$.
+
+The transition probability function, $q$, which gives the probability
+of moving from one modification $i \in \mathbb{M}$ to a new proposed state $j \in \mathbb{M}$, as a function of a chains temperature.
+
+Here we define $q(i,j)$ using a logistic function,
+
+$$q(i,j) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$
+
+
+
+
 
 # Simulation of data for testing the algorithm
 
@@ -36,6 +50,9 @@ given data on that species dispersal.
 
 
 # Results
+
+
+***MTE versus epoch fig***: shows the chains move toward higher extinction times over time, i.e. it works.
 
 ***Some type of performance fig vs. raster size and budget figure***
 
