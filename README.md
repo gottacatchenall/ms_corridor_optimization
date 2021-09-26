@@ -89,10 +89,20 @@ A markov-chain, denoted $\pi_\alpha$
 ***Figure 1: concept fig***
 
 
-## Process-based optimization
+## Process-based optimization (using occupancy dynamics)
 
-Here we use occupancy dynamics as the process, although we emphasize that this method works for arbitraty process models
-and is instead limited only by the computational demands of a given process model.
+Here we use occupancy dynamics as the process, although we emphasize that this
+method works for arbitraty process models and is instead limited only by the
+computational demands of a given process model.
+
+Compute new resistance surface which gives pairwise potential values for each pair of points.
+
+### Occupancy model
+
+This pairwise potential value becomes normalized dispersal potential in spatially-explicit
+metapopulation dynamics model [@hanski2000, @ovask2003]. Done using `MetacommunityDynamics.jl`.
+
+There might be attempts at analytic stuff but maybe not here?
 
 
 ***Figure 2: MTE versus epoch fig***: shows the chains move toward higher extinction times over time, i.e. it works.
@@ -100,19 +110,25 @@ and is instead limited only by the computational demands of a given process mode
 
 # Simulation of data for testing the algorithm
 
-## Simulation of occupancy dynamics
-
 ## Simulation of landscapes
 
 ### Generation of landcover maps
 
+DiamondSquare with high autocorrelatoin (0.7). Binned into $N_{cat}$ land cover
+categories.
+
 ### Generation of points
+
+Random Poisson process rounded to be integer coordinates. Padding around the edges
+because real data doesn't have points on the edges, there's a bounding box(?).
 
 ### Resistance values assigned to each land cover type
 
+
+
 ***Some type of performance fig vs. raster size and budget figure***
 
-# Actual data st. lawrence lowlands
+# Actual data St. Lawrence lowlands
 
 
 
