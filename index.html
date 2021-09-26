@@ -211,7 +211,7 @@
             <p>Consider only modifications that consist of connecting nodes.</p>
             <h4 id="the-two-stage-approach">The two stage approach</h4>
             <p>Stage-one: accept a new topology of connected nodes with probability in proportion to chain temperature (see next section).</p>
-            <p>Stage-two: modify way that the connection for a given topological structure is chosen. Because we are working in a 2D raster, all distances between points are Manhattan distances, and any link between points is composed of <span class="math inline"><em>x</em></span> horizontal steps and <span class="math inline"><em>y</em></span> vertical steps. There are thus <span class="math inline">2<sup>(<em>x</em> + <em>y</em>)</sup></span> ways to connect two nodes that far apart.</p>
+            <p>Stage-two: modify way that the connection for a given topological structure is chosen. Because we are working in a 2D raster, all distances between points are Manhattan distances, and any link between points is composed of <span class="math inline"><em>x</em></span> horizontal steps and <span class="math inline"><em>y</em></span> vertical steps. There are thus <span class="math inline">2<sup>min (<em>x</em>, <em>y</em>)</sup></span> ways to connect two nodes that far apart.</p>
             <h3 id="not-graph-based">Not graph-based</h3>
             <p>The reason to avoid this is because the search-space grows much faster with lattice size and budget. That being said, we can use some simply heuristics to weight proposals using “common-sense.”</p>
             <h2 id="simulated-annealing-to-explore-the-space-of-landscape-modifications">Simulated annealing to explore the space of landscape modifications</h2>
