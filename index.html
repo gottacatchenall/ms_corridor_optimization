@@ -202,9 +202,20 @@
             <p>Here we propose to answer that question by proposing an algorithm to estimate the landscape modification that results in optimizing a specific ecosystem process (in this paper maximizing the time until extinction of a metapopulation, although the algorithm and associated software can be generally applied to any process-based model with a quantifiable target state).</p>
             <p>Although algorithms have been proposed for this <span class="citation" data-cites="peterman">(<strong>peterman?</strong> etc)</span>, they are focused on finding the where the paths of least existance for a given species is given data on that species dispersal.</p>
             <h1 id="an-algorithm-for-optimizing-corridor-placement">An algorithm for optimizing corridor placement</h1>
-            <h2 id="simulated-annealing-to-explore-the-space-of-landscape-modifications">Simulated annealing to explore the space of landscape modifications</h2>
             <p>Start with some definitions and notation.</p>
-            <p>The set of possible landscape modifications, <span class="math inline">𝕄</span>. The transition probability function, <span class="math inline"><em>q</em></span>, which gives the probability of moving from one modification <span class="math inline"><em>i</em> ∈ 𝕄</span> to a new proposed state <span class="math inline"><em>j</em> ∈ 𝕄</span>, as a function of a chains temperature.</p>
+            <p>Define the set of possible landscape modifications, <span class="math inline">𝔐</span>, in optimization language called the <em>search-space</em>. Introduce uncountability argument of this space.</p>
+            <p>Because we cannot test every possible modification in <span class="math inline">𝔐</span>, we use simulated annealing, a method for estimating the global optimum of functions with NP search-spaces.</p>
+            <h2 id="proposing-landscape-modifications">Proposing landscape modifications</h2>
+            <p>This is really important. We propose (no pun intended) several algorithms for generating landscape modifications. Some of the details here might have to go in a supplement/appendix.</p>
+            <h3 id="graph-based">Graph-based</h3>
+            <p>Consider only modifications that consist of connecting nodes.</p>
+            <h4 id="the-two-stage-approach">The two stage approach</h4>
+            <p>Stage-one: accept a new topology of connected nodes with probability in proportion to chain temperature (see next section).</p>
+            <p>Stage-two: modify way that the connection for a given topological structure is chosen. Because we are working in a 2D raster, all distances between points are Manhattan distances, and any link between points is composed of <span class="math inline"><em>x</em></span> horizontal steps and <span class="math inline"><em>y</em></span> vertical steps. There are thus <span class="math inline">2<sup>(<em>x</em> + <em>y</em>)</sup></span> ways to connect two nodes that far apart.</p>
+            <h3 id="not-graph-based">Not graph-based</h3>
+            <p>The reason to avoid this is because the search-space grows much faster with lattice size and budget. That being said, we can use some simply heuristics to weight proposals using “common-sense.”</p>
+            <h2 id="simulated-annealing-to-explore-the-space-of-landscape-modifications">Simulated annealing to explore the space of landscape modifications</h2>
+            <p>The transition probability function, <span class="math inline"><em>q</em></span>, which gives the probability of moving from one modification <span class="math inline"><em>i</em> ∈ 𝕄</span> to a new proposed state <span class="math inline"><em>j</em> ∈ 𝕄</span>, as a function of a chains temperature.</p>
             <p>Here we define <span class="math inline"><em>q</em>(<em>i</em>, <em>j</em>)</span> using a logistic function,</p>
             <p><span class="math display">$$q(i,j, \alpha) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$</span></p>
             <p><span class="math inline"><em>s</em>(<em>i</em>)</span> is the function that gives the score of a proposed modification. Here, the mean time to extinction.</p>
