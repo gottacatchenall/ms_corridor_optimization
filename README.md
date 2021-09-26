@@ -27,12 +27,50 @@ given data on that species dispersal.
 
 # An algorithm for optimizing corridor placement
 
-## Simulated annealing to explore the space of landscape modifications
-
 Start with some definitions and notation.
 
-The set of possible landscape modifications, $\mathbb{M}$. The transition
-probability function, $q$, which gives the probability of moving from one
+Define the set of possible landscape modifications, $\mathfrak{M}$,
+in optimization language called the _search-space_.
+Introduce uncountability argument of this space.
+
+Because we cannot test every possible modification in $\mathfrak{M}$, we
+use simulated annealing, a method for estimating the global optimum of functions
+with NP search-spaces.
+
+
+## Proposing landscape modifications
+
+This is really important. We propose (no pun intended) several algorithms for
+generating landscape modifications. Some of the details here might have to go
+in a supplement/appendix.
+
+### Graph-based
+
+Consider only modifications that consist of connecting nodes.
+
+#### The two stage approach
+
+Stage-one: accept a new topology of connected nodes with probability in proportion
+to chain temperature (see next section).
+
+Stage-two: modify way that the connection for a given topological structure is
+chosen. Because we are working in a 2D raster, all distances between points are
+Manhattan distances, and any link between points is composed of $x$ horizontal
+steps and $y$ vertical steps. There are thus $2^{(x+y)}$ ways to connect two
+nodes that far apart.
+
+
+### Not graph-based
+
+The reason to avoid this is because the search-space grows much faster with lattice
+size and budget. That being said, we can use some simply heuristics to weight
+proposals using "common-sense".   
+
+
+## Simulated annealing to explore the space of landscape modifications
+
+
+The transition probability function, $q$, which gives the probability of moving from one
 modification $i \in \mathbb{M}$ to a new proposed state $j \in \mathbb{M}$, as a
 function of a chains temperature.
 
