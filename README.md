@@ -56,7 +56,7 @@ to chain temperature (see next section).
 Stage-two: modify way that the connection for a given topological structure is
 chosen. Because we are working in a 2D raster, all distances between points are
 Manhattan distances, and any link between points is composed of $x$ horizontal
-steps and $y$ vertical steps. There are thus $2^{(x+y)}$ ways to connect two
+steps and $y$ vertical steps. There are thus $2^{\min(x,y)}$ ways to connect two
 nodes that far apart.
 
 
