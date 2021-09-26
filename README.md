@@ -27,19 +27,37 @@ given data on that species dispersal.
 
 # An algorithm for optimizing corridor placement
 
+## Simulated annealing to explore the space of landscape modifications
+
 Start with some definitions and notation.
 
-The set of possible landscape modifications, $\mathbb{M}$.
-
-The transition probability function, $q$, which gives the probability
-of moving from one modification $i \in \mathbb{M}$ to a new proposed state $j \in \mathbb{M}$, as a function of a chains temperature.
+The set of possible landscape modifications, $\mathbb{M}$. The transition
+probability function, $q$, which gives the probability of moving from one
+modification $i \in \mathbb{M}$ to a new proposed state $j \in \mathbb{M}$, as a
+function of a chains temperature.
 
 Here we define $q(i,j)$ using a logistic function,
 
-$$q(i,j) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$
+$$q(i,j, \alpha) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$
+
+$s(i)$ is the function that gives the score of a proposed modification. Here,
+the mean time to extinction.
 
 
+Simulated annealing can be written described as the following.
 
+A markov-chain, denoted $\pi_\alpha$
+
+***Figure 1: concept fig***
+
+
+## Process-based optimization
+
+Here we use occupancy dynamics as the process, although we emphasize that this method works for arbitraty process models
+and is instead limited only by the computational demands of a given process model.
+
+
+***Figure 2: MTE versus epoch fig***: shows the chains move toward higher extinction times over time, i.e. it works.
 
 
 # Simulation of data for testing the algorithm
@@ -48,12 +66,17 @@ $$q(i,j) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$
 
 ## Simulation of landscapes
 
+### Generation of landcover maps
 
-# Results
+### Generation of points
 
-
-***MTE versus epoch fig***: shows the chains move toward higher extinction times over time, i.e. it works.
+### Resistance values assigned to each land cover type
 
 ***Some type of performance fig vs. raster size and budget figure***
+
+# Actual data st. lawrence lowlands
+
+
+
 
 # Discussion
