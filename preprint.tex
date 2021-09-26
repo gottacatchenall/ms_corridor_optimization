@@ -278,17 +278,40 @@ for a given species is given data on that species dispersal.
 \section{An algorithm for optimizing corridor
 placement}\label{an-algorithm-for-optimizing-corridor-placement}}
 
+\hypertarget{simulated-annealing-to-explore-the-space-of-landscape-modifications}{%
+\subsection{Simulated annealing to explore the space of landscape
+modifications}\label{simulated-annealing-to-explore-the-space-of-landscape-modifications}}
+
 Start with some definitions and notation.
 
-The set of possible landscape modifications, \(\mathbb{M}\).
-
-The transition probability function, \(q\), which gives the probability
-of moving from one modification \(i \in \mathbb{M}\) to a new proposed
+The set of possible landscape modifications, \(\mathbb{M}\). The
+transition probability function, \(q\), which gives the probability of
+moving from one modification \(i \in \mathbb{M}\) to a new proposed
 state \(j \in \mathbb{M}\), as a function of a chains temperature.
 
 Here we define \(q(i,j)\) using a logistic function,
 
-\[q(i,j) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}\]
+\[q(i,j, \alpha) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}\]
+
+\(s(i)\) is the function that gives the score of a proposed
+modification. Here, the mean time to extinction.
+
+Simulated annealing can be written described as the following.
+
+A markov-chain, denoted \(\pi_\alpha\)
+
+\textbf{\emph{Figure 1: concept fig}}
+
+\hypertarget{process-based-optimization}{%
+\subsection{Process-based
+optimization}\label{process-based-optimization}}
+
+Here we use occupancy dynamics as the process, although we emphasize
+that this method works for arbitraty process models and is instead
+limited only by the computational demands of a given process model.
+
+\textbf{\emph{Figure 2: MTE versus epoch fig}}: shows the chains move
+toward higher extinction times over time, i.e.~it works.
 
 \hypertarget{simulation-of-data-for-testing-the-algorithm}{%
 \section{Simulation of data for testing the
@@ -301,14 +324,23 @@ dynamics}\label{simulation-of-occupancy-dynamics}}
 \hypertarget{simulation-of-landscapes}{%
 \subsection{Simulation of landscapes}\label{simulation-of-landscapes}}
 
-\hypertarget{results}{%
-\section{Results}\label{results}}
+\hypertarget{generation-of-landcover-maps}{%
+\subsubsection{Generation of landcover
+maps}\label{generation-of-landcover-maps}}
 
-\textbf{\emph{MTE versus epoch fig}}: shows the chains move toward
-higher extinction times over time, i.e.~it works.
+\hypertarget{generation-of-points}{%
+\subsubsection{Generation of points}\label{generation-of-points}}
+
+\hypertarget{resistance-values-assigned-to-each-land-cover-type}{%
+\subsubsection{Resistance values assigned to each land cover
+type}\label{resistance-values-assigned-to-each-land-cover-type}}
 
 \textbf{\emph{Some type of performance fig vs.~raster size and budget
 figure}}
+
+\hypertarget{actual-data-st.-lawrence-lowlands}{%
+\section{Actual data st. lawrence
+lowlands}\label{actual-data-st.-lawrence-lowlands}}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}

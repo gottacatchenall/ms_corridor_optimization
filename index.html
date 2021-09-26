@@ -202,17 +202,26 @@
             <p>Here we propose to answer that question by proposing an algorithm to estimate the landscape modification that results in optimizing a specific ecosystem process (in this paper maximizing the time until extinction of a metapopulation, although the algorithm and associated software can be generally applied to any process-based model with a quantifiable target state).</p>
             <p>Although algorithms have been proposed for this <span class="citation" data-cites="peterman">(<strong>peterman?</strong> etc)</span>, they are focused on finding the where the paths of least existance for a given species is given data on that species dispersal.</p>
             <h1 id="an-algorithm-for-optimizing-corridor-placement">An algorithm for optimizing corridor placement</h1>
+            <h2 id="simulated-annealing-to-explore-the-space-of-landscape-modifications">Simulated annealing to explore the space of landscape modifications</h2>
             <p>Start with some definitions and notation.</p>
-            <p>The set of possible landscape modifications, <span class="math inline">𝕄</span>.</p>
-            <p>The transition probability function, <span class="math inline"><em>q</em></span>, which gives the probability of moving from one modification <span class="math inline"><em>i</em> ∈ 𝕄</span> to a new proposed state <span class="math inline"><em>j</em> ∈ 𝕄</span>, as a function of a chains temperature.</p>
+            <p>The set of possible landscape modifications, <span class="math inline">𝕄</span>. The transition probability function, <span class="math inline"><em>q</em></span>, which gives the probability of moving from one modification <span class="math inline"><em>i</em> ∈ 𝕄</span> to a new proposed state <span class="math inline"><em>j</em> ∈ 𝕄</span>, as a function of a chains temperature.</p>
             <p>Here we define <span class="math inline"><em>q</em>(<em>i</em>, <em>j</em>)</span> using a logistic function,</p>
-            <p><span class="math display">$$q(i,j) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$</span></p>
+            <p><span class="math display">$$q(i,j, \alpha) = \frac{1}{1 + e^{\alpha (s(j) - s(i))}}$$</span></p>
+            <p><span class="math inline"><em>s</em>(<em>i</em>)</span> is the function that gives the score of a proposed modification. Here, the mean time to extinction.</p>
+            <p>Simulated annealing can be written described as the following.</p>
+            <p>A markov-chain, denoted <span class="math inline"><em>π</em><sub><em>α</em></sub></span></p>
+            <p><strong><em>Figure 1: concept fig</em></strong></p>
+            <h2 id="process-based-optimization">Process-based optimization</h2>
+            <p>Here we use occupancy dynamics as the process, although we emphasize that this method works for arbitraty process models and is instead limited only by the computational demands of a given process model.</p>
+            <p><strong><em>Figure 2: MTE versus epoch fig</em></strong>: shows the chains move toward higher extinction times over time, i.e. it works.</p>
             <h1 id="simulation-of-data-for-testing-the-algorithm">Simulation of data for testing the algorithm</h1>
             <h2 id="simulation-of-occupancy-dynamics">Simulation of occupancy dynamics</h2>
             <h2 id="simulation-of-landscapes">Simulation of landscapes</h2>
-            <h1 id="results">Results</h1>
-            <p><strong><em>MTE versus epoch fig</em></strong>: shows the chains move toward higher extinction times over time, i.e. it works.</p>
+            <h3 id="generation-of-landcover-maps">Generation of landcover maps</h3>
+            <h3 id="generation-of-points">Generation of points</h3>
+            <h3 id="resistance-values-assigned-to-each-land-cover-type">Resistance values assigned to each land cover type</h3>
             <p><strong><em>Some type of performance fig vs. raster size and budget figure</em></strong></p>
+            <h1 id="actual-data-st.-lawrence-lowlands">Actual data st. lawrence lowlands</h1>
             <h1 id="discussion">Discussion</h1>
         </article>
     </main>
