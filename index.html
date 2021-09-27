@@ -208,7 +208,7 @@
             <h2 id="proposing-landscape-modifications">Proposing landscape modifications</h2>
             <p>This is really important. We propose (no pun intended) several algorithms for generating landscape modifications. Some of the details here might have to go in a supplement/appendix.</p>
             <h3 id="graph-based">Graph-based</h3>
-            <p>Consider only modifications that consist of connecting nodes.</p>
+            <p>Consider only modifications that consist of connecting nodes. TODO: only choose topologies from the minimum spanning tree of the nodes.</p>
             <h4 id="the-two-stage-approach">The two stage approach</h4>
             <p>Stage-one: accept a new topology of connected nodes with probability in proportion to chain temperature (see next section).</p>
             <p>Stage-two: modify way that the connection for a given topological structure is chosen. Because we are working in a 2D raster, all distances between points are Manhattan distances, and any link between points is composed of <span class="math inline"><em>x</em></span> horizontal steps and <span class="math inline"><em>y</em></span> vertical steps. There are thus <span class="math inline">2<sup>min (<em>x</em>, <em>y</em>)</sup></span> ways to connect two nodes that far apart.</p>
@@ -223,19 +223,21 @@
             <p>A markov-chain, denoted <span class="math inline"><em>π</em><sub><em>α</em></sub></span></p>
             <p><strong><em>Figure 1: concept fig</em></strong></p>
             <h2 id="process-based-optimization-using-occupancy-dynamics">Process-based optimization (using occupancy dynamics)</h2>
-            <p>Here we use occupancy dynamics as the process, although we emphasize that this method works for arbitraty process models and is instead limited only by the computational demands of a given process model.</p>
+            <p>Here we use occupancy dynamics as the process, although we emphasize that this method works for arbitrary process models and is instead limited only by the computational demands of a given process model.</p>
             <p>Compute new resistance surface which gives pairwise potential values for each pair of points.</p>
             <h3 id="occupancy-model">Occupancy model</h3>
             <p>This pairwise potential value becomes normalized dispersal potential in spatially-explicit metapopulation dynamics model <span class="citation" data-cites="hanski2000">(<strong>ovask2003?</strong>)</span>. Done using <code>MetacommunityDynamics.jl</code>.</p>
             <p>There might be attempts at analytic stuff but maybe not here?</p>
-            <p><strong><em>Figure 2: MTE versus epoch fig</em></strong>: shows the chains move toward higher extinction times over time, i.e. it works.</p>
+            <p><strong><em>Figure 2: MTE versus epoch fig</em></strong>: shows the chains move toward higher *extinction times over time, i.e. it works.</p>
             <h1 id="simulation-of-data-for-testing-the-algorithm">Simulation of data for testing the algorithm</h1>
+            <p>In this section we describe the generation of simulated land cover and sites for testing the algorithm.</p>
             <h2 id="simulation-of-landscapes">Simulation of landscapes</h2>
             <h3 id="generation-of-landcover-maps">Generation of landcover maps</h3>
             <p>DiamondSquare with high autocorrelatoin (0.7). Binned into <span class="math inline"><em>N</em><sub><em>c</em><em>a</em><em>t</em></sub></span> land cover categories.</p>
             <h3 id="generation-of-points">Generation of points</h3>
-            <p>Random Poisson process rounded to be integer coordinates. Padding around the edges because real data doesn’t have points on the edges, there’s a bounding box(?).</p>
+            <p>Random Poisson process rounded to be integer coordinates. Padding around the edges because real data doesn’t have points on the edges, 10% on each side.</p>
             <h3 id="resistance-values-assigned-to-each-land-cover-type">Resistance values assigned to each land cover type</h3>
+            <p>Each simulated land cover has <span class="math inline"><em>N</em><sub><em>c</em><em>a</em><em>t</em></sub></span> categories. The values of resistance</p>
             <p><strong><em>Some type of performance fig vs. raster size and budget figure</em></strong></p>
             <h1 id="actual-data-st.-lawrence-lowlands">Actual data St. Lawrence lowlands</h1>
             <h1 id="discussion">Discussion</h1>

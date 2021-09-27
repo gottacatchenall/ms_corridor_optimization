@@ -243,7 +243,8 @@ here might have to go in a supplement/appendix.
 \hypertarget{graph-based}{%
 \subsubsection{Graph-based}\label{graph-based}}
 
-Consider only modifications that consist of connecting nodes.
+Consider only modifications that consist of connecting nodes. TODO: only
+choose topologies from the minimum spanning tree of the nodes.
 
 \hypertarget{the-two-stage-approach}{%
 \paragraph{The two stage approach}\label{the-two-stage-approach}}
@@ -291,7 +292,7 @@ A markov-chain, denoted \(\pi_\alpha\)
 dynamics)}\label{process-based-optimization-using-occupancy-dynamics}}
 
 Here we use occupancy dynamics as the process, although we emphasize
-that this method works for arbitraty process models and is instead
+that this method works for arbitrary process models and is instead
 limited only by the computational demands of a given process model.
 
 Compute new resistance surface which gives pairwise potential values for
@@ -307,11 +308,14 @@ Done using \texttt{MetacommunityDynamics.jl}.
 There might be attempts at analytic stuff but maybe not here?
 
 \textbf{\emph{Figure 2: MTE versus epoch fig}}: shows the chains move
-toward higher extinction times over time, i.e.~it works.
+toward higher *extinction times over time, i.e.~it works.
 
 \hypertarget{simulation-of-data-for-testing-the-algorithm}{%
 \section{Simulation of data for testing the
 algorithm}\label{simulation-of-data-for-testing-the-algorithm}}
+
+In this section we describe the generation of simulated land cover and
+sites for testing the algorithm.
 
 \hypertarget{simulation-of-landscapes}{%
 \subsection{Simulation of landscapes}\label{simulation-of-landscapes}}
@@ -327,12 +331,15 @@ land cover categories.
 \subsubsection{Generation of points}\label{generation-of-points}}
 
 Random Poisson process rounded to be integer coordinates. Padding around
-the edges because real data doesn't have points on the edges, there's a
-bounding box(?).
+the edges because real data doesn't have points on the edges, 10\% on
+each side.
 
 \hypertarget{resistance-values-assigned-to-each-land-cover-type}{%
 \subsubsection{Resistance values assigned to each land cover
 type}\label{resistance-values-assigned-to-each-land-cover-type}}
+
+Each simulated land cover has \(N_{cat}\) categories. The values of
+resistance
 
 \textbf{\emph{Some type of performance fig vs.~raster size and budget
 figure}}
