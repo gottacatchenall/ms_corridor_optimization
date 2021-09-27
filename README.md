@@ -46,12 +46,14 @@ in a supplement/appendix.
 
 ### Graph-based
 
-Consider only modifications that consist of connecting nodes.
+Consider only modifications that consist of connecting nodes. TODO: only choose
+topologies from the minimum spanning tree of the nodes. 
 
 #### The two stage approach
 
 Stage-one: accept a new topology of connected nodes with probability in proportion
 to chain temperature (see next section).
+
 
 Stage-two: modify way that the connection for a given topological structure is
 chosen. Because we are working in a 2D raster, all distances between points are
@@ -92,23 +94,29 @@ A markov-chain, denoted $\pi_\alpha$
 ## Process-based optimization (using occupancy dynamics)
 
 Here we use occupancy dynamics as the process, although we emphasize that this
-method works for arbitraty process models and is instead limited only by the
+method works for arbitrary process models and is instead limited only by the
 computational demands of a given process model.
 
-Compute new resistance surface which gives pairwise potential values for each pair of points.
+Compute new resistance surface which gives pairwise potential values for each
+pair of points.
 
 ### Occupancy model
 
-This pairwise potential value becomes normalized dispersal potential in spatially-explicit
-metapopulation dynamics model [@hanski2000, @ovask2003]. Done using `MetacommunityDynamics.jl`.
+This pairwise potential value becomes normalized dispersal potential in
+spatially-explicit metapopulation dynamics model [@hanski2000, @ovask2003]. Done
+using `MetacommunityDynamics.jl`.
 
 There might be attempts at analytic stuff but maybe not here?
 
 
-***Figure 2: MTE versus epoch fig***: shows the chains move toward higher extinction times over time, i.e. it works.
+***Figure 2: MTE versus epoch fig***: shows the chains move toward higher
+*extinction times over time, i.e. it works.
 
 
 # Simulation of data for testing the algorithm
+
+In this section we describe the generation of simulated land cover and sites
+for testing the algorithm.
 
 ## Simulation of landscapes
 
@@ -120,9 +128,11 @@ categories.
 ### Generation of points
 
 Random Poisson process rounded to be integer coordinates. Padding around the edges
-because real data doesn't have points on the edges, there's a bounding box(?).
+because real data doesn't have points on the edges, 10% on each side.
 
 ### Resistance values assigned to each land cover type
+
+Each simulated land cover has $N_{cat}$ categories. The values of resistance
 
 
 
